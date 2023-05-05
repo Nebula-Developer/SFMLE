@@ -8,6 +8,12 @@ public class Anchored {
     public Vector2f Size { get; set; }
     public Anchor Anchor { get; set; }
 
+    public Anchored() {
+        Position = new Vector2f(0, 0);
+        Size = new Vector2f(0, 0);
+        Anchor = Anchor.TopLeft;
+    }
+
     private static readonly Dictionary<Anchor, Vector2f> AnchorPositions = new Dictionary<Anchor, Vector2f> {
         { Anchor.TopLeft, new Vector2f(0, 0) },
         { Anchor.TopCenter, new Vector2f(0.5f, 0) },

@@ -8,30 +8,41 @@ namespace SFMLE;
 
 public static class Program {
     public static void Main(String[] args) {
-        RenderWindow window = new RenderWindow(new VideoMode(800, 600), "SFML Window");
+        RenderWindow window = new RenderWindow(new VideoMode(300, 300), "SFML.NET");
+
+        TransformableElement windowElement = new TransformableElement() {
+            Position = new Vector2f(0, 0),
+            Size = new Vector2f(300, 300),
+            Anchor = Anchor.TopLeft
+        };
+
+        RectangleElement rectangle = new RectangleElement() {
+            Position = new Vector2f(0, 0),
+            Size = new Vector2f(100, 100),
+            Anchor = Anchor.TopCenter,
+            Parent = windowElement
+        };
 
         window.Resized += (sender, e) => {
             window.SetView(new View(new FloatRect(0, 0, e.Width, e.Height)));
-            window.Display();
+            windowElement.Size = new Vector2f(e.Width, e.Height);
         };
 
-        window.Closed += (sender, e) => window.Close();
-
-        Anchored anchored = new Anchored {
-            Position = new Vector2f(0, 0), Size = new Vector2f(100, 100), Anchor = Anchor.BottomRight
+        window.KeyPressed += (sender, e) => {
+            rectangle.Anchor = (Anchor) (((int)rectangle.Anchor + 1) % 9);
         };
-
-        RectangleShape shape = new RectangleShape(anchored.Size) { FillColor = Color.Red };
 
         while (window.IsOpen) {
             window.DispatchEvents();
 
-            anchored.CalcWorldPosition(new Vector2f(0, 0), new Vector2f(window.Size.X, window.Size.Y));
-            shape.Position = anchored.WorldPosition;
+            window.Clear(Color.Black);
 
-            window.Clear();
-            window.Draw(shape);
+            rectangle.Update();
+            rectangle.Draw(window, RenderStates.Default);
+
             window.Display();
         }
+
+
     }
 }
