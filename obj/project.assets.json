@@ -460,19 +460,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/nebuladev/.nuget/packages/": {}
+    "/home/nebuladev/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/nebuladev/Documents/lang/lang.csproj",
+      "projectUniqueName": "/home/nebuladev/Documents/sfmle/lang.csproj",
       "projectName": "lang",
-      "projectPath": "/Users/nebuladev/Documents/lang/lang.csproj",
-      "packagesPath": "/Users/nebuladev/.nuget/packages/",
-      "outputPath": "/Users/nebuladev/Documents/lang/obj/",
+      "projectPath": "/home/nebuladev/Documents/sfmle/lang.csproj",
+      "packagesPath": "/home/nebuladev/.nuget/packages/",
+      "outputPath": "/home/nebuladev/Documents/sfmle/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/nebuladev/.nuget/NuGet/NuGet.Config"
+        "/home/nebuladev/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -517,7 +517,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/Cellar/dotnet/7.0.100/libexec/sdk/7.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
       }
     }
   }
